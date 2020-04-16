@@ -1,6 +1,7 @@
 package br.edu.infnet.vendamvc.model.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,11 @@ public class HibridoService {
 	@SuppressWarnings("unchecked")
 	public List<Hibrido> obterLista() {
 		return (List<Hibrido>)rest.getForObject("http://localhost:8080/api/hibrido", List.class);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Optional<Hibrido> obterPorId(Integer id) {
+		return rest.getForEntity("http://localhost:8080/api/hibrido" + "/"+ id, Optional.class).getBody();
 	}
 	
 	public void incluir (Hibrido hibrido) {
