@@ -63,11 +63,11 @@ public class VendaController {
 	@RequestMapping(value = "/venda/excluir/{id}", method = RequestMethod.GET)
 	public String excluir(Model model, @PathVariable Integer id) {
 		
-//		Optional<Venda> venda = service.obterPorId(id);
-//		for (Produto produto : venda.get().getProdutos()) {
-//			produto.setVenda(null);
-//			produtoService.atualizar(produto);
-//		}
+		Optional<Venda> venda = service.obterPorId(id);
+		for (Produto produto : venda.get().getProdutos()) {
+			produto.setVenda(null);
+			produtoService.atualizar(produto);
+		}
 		service.excluir(id);
 		
 		return this.obterLista(model);

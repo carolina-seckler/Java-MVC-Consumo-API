@@ -26,7 +26,6 @@ public class ClienteService {
 	}
 	
 	public void incluir (Cliente cliente) {
-		//ResponseEntity<String> r = rest.postForEntity("http://localhost:8080/api/cliente", cliente, String.class);
 		rest.postForEntity("http://localhost:8080/api/cliente", cliente, String.class);
 	}
 	
